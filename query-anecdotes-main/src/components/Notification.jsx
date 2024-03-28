@@ -1,4 +1,10 @@
+import { useContext } from "react"
+import NotificationContext, { useNotificationVal } from "../context/AnecdoteContext"
+
 const Notification = () => {
+
+  const notification = useNotificationVal()
+
   const style = {
     border: 'solid',
     padding: 10,
@@ -6,10 +12,15 @@ const Notification = () => {
     marginBottom: 5
   }
   
-  if (true) return null
-
   return (
-    <div style={style}>
+    <div>
+      {(notification) ?
+        <div style={style}>
+          {notification}
+        </div>       
+      :
+        <></>
+      }
       
     </div>
   )
